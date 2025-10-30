@@ -1,11 +1,10 @@
-import React from "react";
 import { Link } from "react-router-dom";
 
 function Book({ data, addToCart }) {
   return (
     <div className="min-h-screen bg-slate-100 p-4 sm:p-8 pt-2">
-      <h1 className="text-2xl sm:text-3xl font-bold text-center mb-8 text-gray-800">
-        Books for Sale
+      <h1 lang="km" className="text-2xl sm:text-3xl font-bold text-center mb-8 text-gray-800">
+        ទូសៀវភៅ
       </h1>
       <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
         {data.map((item) => (
@@ -23,7 +22,7 @@ function Book({ data, addToCart }) {
 
             <div className="p-4 flex flex-col flex-grow justify-between">
               <div>
-                <h2 className="text-lg sm:text-xl font-semibold mb-2 text-gray-800">
+                <h2 lang="km" className="text-lg sm:text-xl font-semibold mb-2 text-gray-800">
                   {item.title}
                 </h2>
                 <p className="text-gray-600 text-sm sm:text-base">

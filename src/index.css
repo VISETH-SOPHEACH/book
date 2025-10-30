@@ -1,1 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Fasthand&family=Freehand&family=Moul&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
 @import "tailwindcss";
+
+:lang(en) {
+  font-family: "Dancing Script", sans-serif;
+}
+
+:lang(km) {
+  font-family: "Freehand", cursive;
+}

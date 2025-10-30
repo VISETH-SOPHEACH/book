@@ -1,4 +1,3 @@
-import React from "react";
 import { Link } from "react-router-dom";
 
 function Home() {
@@ -36,7 +35,7 @@ function Home() {
     textIndent: "52px",
   };
   const BenefitCard = ({ title, icon, description }) => (
-    <div className="bg-white rounded-xl shadow-lg hover:shadow-xl transition duration-300 transform hover:-translate-y-1 p-6 border-t-4 border-indigo-400 flex flex-col items-start text-left">
+    <div className=" freehand-regular bg-white rounded-xl shadow-lg hover:shadow-xl transition duration-300 transform hover:-translate-y-1 p-6 border-t-4 border-indigo-400 flex flex-col items-start text-left">
       <div className="text-4xl text-indigo-500 mb-3">{icon}</div>
       <h3 className="text-xl font-semibold text-gray-800 mb-2">{title}</h3>
       <p className="text-sm text-gray-600">{description}</p>
@@ -115,7 +114,7 @@ function Home() {
 
       <footer className="mt-16 text-center text-gray-500 text-sm">
         &copy; {new Date().getFullYear()} Literacy Advocate. Invest in your
-        mind.
+        mind. <button className="bg-yellow-600 text-white">( don't buy anything, it's just a test site !!! )</button>
       </footer>
     </div>
   );

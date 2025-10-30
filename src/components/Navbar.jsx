@@ -1,14 +1,14 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { NavLink } from "react-router-dom";
 
 function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <nav className="fixed top-0 w-full z-50 bg-gradient-to-r from-gray-600 via-gray-500 to-gray-400 shadow-lg pb-0">
+    <nav className="fixed top-0 w-full z-50 bg-gray-600/40 backdrop-blur-md border-b border-white/10 shadow-lg pb-0">
       <div className="flex justify-between items-center py-4 px-6 md:px-10">
         <NavLink to="/" className="flex items-center">
-          <h1 className="text-2xl sm:text-3xl font-bold text-white drop-shadow-lg hover:scale-105 transition-transform">
+          <h1 lang="en" className="text-2xl sm:text-3xl font-bold text-white drop-shadow-lg hover:scale-105 transition-transform">
             Book<span className="text-yellow-300">Shop</span>
           </h1>
         </NavLink>
@@ -70,7 +70,7 @@ function Navbar() {
 
       {/* Mobile Menu */}
       <div
-        className={`md:hidden bg-gradient-to-r  from-gray-800 via-gray-700 to-gray-600 shadow-lg text-white text-center overflow-hidden transition-all duration-300 ${
+        className={`md:hidden bg-gray-300/40 backdrop-blur-md border-b border-white/10 shadow-lg text-center overflow-hidden transition-all duration-300 ${
           menuOpen ? "max-h-96 py-4" : "max-h-0"
         }`}
       >
