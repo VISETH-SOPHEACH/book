@@ -6,7 +6,7 @@ import Book from "./pages/Book";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
 import Cart from "./components/Cart";
-import Qr from "./components/Qr";
+import Qr from "./components/qr";
 import img1 from "./assets/img/btes.jpg";
 import img2 from "./assets/img/jk.jpg";
 import img3 from "./assets/img/kl.jpg";
