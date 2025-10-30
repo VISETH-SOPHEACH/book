@@ -144,7 +144,7 @@ function App() {
             path="/cart"
             element={<Cart cart={cart} removeFromCart={removeFromCart} />}
           >
-            <Route path="qr" element={<Qr />} />
+            <Route path="Qr" element={<Qr />} />
           </Route>
         </Routes>
       </main>

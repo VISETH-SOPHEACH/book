@@ -1,4 +1,4 @@
-import React from "react";
+import { Link } from "react-router-dom";
 
 function About() {
   return (
@@ -88,9 +88,11 @@ function About() {
             Explore our collections, share your favorite reads, and become part
             of the Book Haven family.
           </p>
+          <Link to='/books'>
           <button className="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-8 rounded-full shadow-xl transition duration-300 transform hover:scale-105 uppercase tracking-wider">
             Start Reading Now
           </button>
+          </Link>
         </section>
       </div>
 

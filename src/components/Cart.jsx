@@ -54,7 +54,7 @@ function Cart({ cart, removeFromCart }) {
               Total: <span className="text-blue-600">${totalPrice}</span>
             </h2>
             <button
-              onClick={() => navigate("qr")}
+              onClick={() => navigate("Qr")}
               type="button"
               className="flex items-center gap-2 bg-green-200 hover:bg-green-300 text-gray-800 font-semibold py-2 px-6 rounded-3xl transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-green-400 focus:ring-opacity-50"
             >
