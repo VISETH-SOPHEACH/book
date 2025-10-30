@@ -1,4 +1,3 @@
-import React from "react";
 import img11 from "../assets/img/qr.JPG";
 import { useNavigate } from "react-router-dom";
 
