@@ -1,4 +1,4 @@
-import img11 from "../assets/img/qr.JPG";
+import img13 from "../assets/img/qr.JPG";
 import { useNavigate } from "react-router-dom";
 
 function Qr() {
@@ -7,7 +7,7 @@ function Qr() {
     <div className="fixed inset-0 bg-black/70 backdrop-blur-sm flex justify-center items-center z-50">
       <div className="flex flex-col items-start">
         <img
-          src={img11}
+          src={img13}
           alt="QR Code"
           className="rounded-lg shadow-lg w-[300px] sm:w-[400px]"
         />
