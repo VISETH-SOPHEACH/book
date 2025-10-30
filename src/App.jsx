@@ -1,12 +1,12 @@
 import { useState } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Navbar from "./components/Navbar";
+import Cart from "./components/Cart";
+import Qr from "./components/Qr";
 import Home from "./pages/Home";
 import Book from "./pages/Book";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
-import Cart from "./components/Cart";
-import Qr from "./components/Qr";
 import img1 from "./assets/img/btes.jpg";
 import img2 from "./assets/img/jk.jpg";
 import img3 from "./assets/img/kl.jpg";
@@ -144,7 +144,7 @@ function App() {
             path="/cart"
             element={<Cart cart={cart} removeFromCart={removeFromCart} />}
           >
-            <Route path="Qr" element={<Qr />} />
+            <Route path="qr" element={<Qr />} />
           </Route>
         </Routes>
       </main>
