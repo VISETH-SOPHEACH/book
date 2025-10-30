@@ -2,7 +2,7 @@ import { useState } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Cart from "./components/Cart";
-import Qr from "./components/Qr";
+import Qr from "./components/qr";
 import Home from "./pages/Home";
 import Book from "./pages/Book";
 import About from "./pages/About";
