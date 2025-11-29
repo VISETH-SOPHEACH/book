@@ -1,14 +1,17 @@
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
 
-function Navbar() {
+function Navbar({ cart }) {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
     <nav className="fixed top-0 w-full z-50 bg-gray-600/40 backdrop-blur-md border-b border-white/10 shadow-lg pb-0">
       <div className="flex justify-between items-center py-4 px-6 md:px-10">
         <NavLink to="/" className="flex items-center">
-          <h1 lang="en" className="text-2xl sm:text-3xl font-bold text-white drop-shadow-lg hover:scale-105 transition-transform">
+          <h1
+            lang="en"
+            className="text-2xl sm:text-3xl font-bold text-white drop-shadow-lg hover:scale-105 transition-transform"
+          >
             Book<span className="text-yellow-300">Shop</span>
           </h1>
         </NavLink>
@@ -37,11 +40,18 @@ function Navbar() {
         </ul>
 
         {/* Desktop Cart Button */}
-        <div className="hidden md:block">
+        <div className="hidden md:block relative">
           <NavLink to="/cart">
             <button className="bg-white text-indigo-600 px-6 py-2 rounded-full font-bold hover:bg-green-500 hover:text-white transition-all shadow-lg hover:shadow-xl hover:scale-105">
               Cart
             </button>
+
+            {/* Cart Count Badge */}
+            {cart.length > 0 && (
+              <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs px-2 py-1 rounded-full">
+                {cart.length}
+              </span>
+            )}
           </NavLink>
         </div>
 
@@ -92,10 +102,26 @@ function Navbar() {
           );
         })}
 
+        {/* Mobile Cart Button */}
         <NavLink to="/cart" onClick={() => setMenuOpen(false)}>
-          <button className="mt-3 bg-white text-indigo-600 px-6 py-2 rounded-full font-bold hover:bg-green-400 hover:text-white transition-all shadow-lg hover:shadow-xl">
-            Cart
-          </button>
+          <div className="relative inline-block">
+            <button
+              className="bg-white text-indigo-600 px-6 py-2 rounded-full font-bold 
+      hover:bg-green-500 hover:text-white transition-all shadow-lg hover:shadow-xl hover:scale-105"
+            >
+              Cart
+            </button>
+
+            {/* Show badge only if cart has items */}
+            {cart.length > 0 && (
+              <span
+                className="absolute -top-2 -right-2 bg-red-600 text-white text-xs 
+        w-5 h-5 flex items-center justify-center rounded-full"
+              >
+                {cart.length}
+              </span>
+            )}
+          </div>
         </NavLink>
       </div>
     </nav>

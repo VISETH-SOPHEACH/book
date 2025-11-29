@@ -2,7 +2,7 @@ import { useState } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Cart from "./components/Cart";
-import Qr from "./components/qr";
+import Qr from "./components/Qr";
 import Home from "./pages/Home";
 import Book from "./pages/Book";
 import About from "./pages/About";
@@ -22,7 +22,6 @@ import img12 from "./assets/img/try.png";
 
 function App() {
   const [cart, setCart] = useState([]);
-
   const books = [
     {
       id: 1,
@@ -50,7 +49,7 @@ function App() {
       title: "កំពប់តែអុង",
       price: 99,
       img: img4,
-      lk: "https://drive.google.com/file/d/1RAxqicsl2AARoFduWRLHlVCvaBAJdF-G/view?fbclid=IwY2xjawNlGhVleHRuA2FlbQIxMABicmlkETFFZGNIdUJCZHluc1htV3duAR7PyLh8J1GuepRXJoFs69RO-VlY---8Jy4RpePs1eJh8O_ph6ipovDOrcJMMA_aem_i08Dj_7DfpTons2YLuXiwg&pli=1",
+      lk: "https://drive.google.com/file/d/1RAxqicsl2AARoFduWRLHlVCvaBAJdF-G/view",
     },
     {
       id: 5,
@@ -92,37 +91,37 @@ function App() {
       title: "ញ្ញាណទស្សនៈ",
       price: 99,
       img: img10,
-      lk: "https://www.scribd.com/document/489540158/%E1%9E%9C%E1%9E%B7%E1%9E%89-%E1%9E%89%E1%9E%B6%E1%9E%8E%E1%9E%91%E1%9E%9F-%E1%9E%9F%E1%9E%93%E1%9F%88",
+      lk: "https://www.scribd.com/document/489540158/",
     },
     {
       id: 11,
       title: "សត្រូវបងប្អូនឯង",
       price: 99,
       img: img11,
-      lk: "https://drive.google.com/file/d/0B1dv5sqSPsPbT19lTkpJRld2QXc/view?fbclid=IwY2xjawNthitleHRuA2FlbQIxMABicmlkETFyUkF5Q3VrZ282MU5sSXNqAR6CFU85WLEy5YV7ggYMpy3tj_YSKSvFG5m_rs9rGxJRHoQyKVNAgB63P80YCA_aem_s3Ye7EVj0rLjPiBCuRWJxg&resourcekey=0-rF81dWwxPxiBjLTwp9ap8w",
+      lk: "https://drive.google.com/file/d/0B1dv5sqSPsPbT19lTkpJRld2QXc/view",
     },
     {
       id: 12,
       title: "ប្រវត្តិអ្នកតស៊ូខ្មែរ",
       price: 99,
       img: img12,
-      lk: "https://drive.google.com/file/d/1ATd_C8pteZiWr0mjBEdKVXABcnAlzspu/view?fbclid=IwY2xjawNthlNleHRuA2FlbQIxMABicmlkETFyUkF5Q3VrZ282MU5sSXNqAR6sz2zqVYGjO6FPlz_G-jg-eaS12sVPhgKNuZNZfVKQQMmNs9moqzUK59Sd_w_aem_JAbNR_l3LejNsDmf4swFQQ",
+      lk: "https://drive.google.com/file/d/1ATd_C8pteZiWr0mjBEdKVXABcnAlzspu/view",
     },
   ];
 
-  // Add book to cart
+  // Add
   const addToCart = (book) => {
     setCart((prev) => [...prev, { ...book, cartId: Date.now() }]);
   };
 
-  // Remove book from cart
+  // Remove
   const removeFromCart = (cartId) => {
     setCart((prev) => prev.filter((item) => item.cartId !== cartId));
   };
 
   return (
     <Router>
-      <Navbar />
+      <Navbar cart={cart} />
       <main className="pt-15">
         <Routes>
           <Route
