@@ -1,10 +1,93 @@
-@import url('https://fonts.googleapis.com/css2?family=Fasthand&family=Freehand&family=Moul&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Freehand&family=Sora:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap");
 @import "tailwindcss";
+@custom-variant light (&:where(.light, .light *));
 
-:lang(en) {
-  font-family: "Dancing Script", sans-serif;
+@layer base {
+  :root {
+    color-scheme: dark;
+  }
+
+  :root.light {
+    color-scheme: light;
+  }
+
+  body {
+    @apply m-0 min-h-screen bg-slate-950 text-slate-100 antialiased;
+    font-family: "Sora", sans-serif;
+    background-image: radial-gradient(
+        circle at 10% 20%,
+        rgba(14, 165, 233, 0.2),
+        transparent 35%
+      ),
+      radial-gradient(
+        circle at 90% 5%,
+        rgba(56, 189, 248, 0.14),
+        transparent 30%
+      ),
+      radial-gradient(
+        circle at 80% 80%,
+        rgba(251, 191, 36, 0.16),
+        transparent 28%
+      );
+  }
+
+  :root.light body {
+    @apply bg-slate-100 text-slate-900;
+    background-image: radial-gradient(
+        circle at 10% 20%,
+        rgba(14, 165, 233, 0.24),
+        transparent 38%
+      ),
+      radial-gradient(
+        circle at 90% 5%,
+        rgba(59, 130, 246, 0.2),
+        transparent 30%
+      ),
+      radial-gradient(
+        circle at 80% 80%,
+        rgba(251, 191, 36, 0.28),
+        transparent 30%
+      );
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: "Space Grotesk", sans-serif;
+  }
 }
 
 :lang(km) {
   font-family: "Freehand", cursive;
+}
+
+@layer utilities {
+  .glass-panel {
+    @apply rounded-2xl border border-white/10 bg-white/5 shadow-2xl shadow-cyan-950/30 backdrop-blur-lg;
+  }
+
+  .light .glass-panel {
+    @apply border-slate-200/80 bg-white/80 shadow-xl shadow-sky-200/60;
+  }
+
+  .headline-gradient {
+    @apply bg-gradient-to-r from-cyan-300 via-sky-300 to-amber-300 bg-clip-text text-transparent;
+  }
+
+  .light .headline-gradient {
+    @apply from-cyan-700 via-sky-700 to-amber-600;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center rounded-full bg-gradient-to-r from-cyan-400 to-sky-500 px-5 py-2.5 font-semibold text-slate-950 transition hover:scale-[1.02] hover:from-cyan-300 hover:to-sky-400;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center rounded-full border border-white/25 bg-white/8 px-5 py-2.5 font-semibold text-slate-100 transition hover:border-cyan-300/50 hover:bg-cyan-300/10;
+  }
+
+  .light .btn-secondary {
+    @apply border-slate-300 bg-white text-slate-800 hover:border-cyan-500/50 hover:bg-cyan-600/10;
+  }
 }

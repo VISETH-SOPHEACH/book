@@ -1,22 +1,25 @@
-import img13 from "../assets/img/qr.JPG";
+﻿import img13 from "../assets/img/qr.JPG";
 import { useNavigate } from "react-router-dom";
 
 function Qr() {
   const navigate = useNavigate();
+
   return (
-    <div className="fixed inset-0 bg-black/70 backdrop-blur-sm flex justify-center items-center z-50">
-      <div className="flex flex-col items-start">
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-slate-950/85 px-4 backdrop-blur-md light:bg-slate-100/80">
+      <div className="glass-panel w-full max-w-md p-5 text-center md:p-6">
+        <h2 className="text-2xl font-bold text-slate-50 light:text-slate-900">Scan to Checkout</h2>
+        <p className="mt-2 text-sm text-slate-300 light:text-slate-700">Demo payment screen for this test website.</p>
         <img
           src={img13}
           alt="QR Code"
-          className="rounded-lg shadow-lg w-[300px] sm:w-[400px]"
+          className="mx-auto mt-4 w-full max-w-[320px] rounded-xl border border-white/20 light:border-slate-300/80"
         />
         <button
           type="button"
           onClick={() => navigate("/cart")}
-          className="mt-4 self-end px-6 py-2 rounded-full bg-gradient-to-r from-blue-600 to-cyan-500 text-white font-semibold hover:from-blue-700 hover:to-cyan-600 transition-all duration-300 transform hover:scale-105"
+          className="btn-secondary mt-5 w-full"
         >
-          Back, don't buy, it's just a test site
+          Back to Cart
         </button>
       </div>
     </div>

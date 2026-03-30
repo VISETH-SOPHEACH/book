@@ -1,105 +1,58 @@
-import { Link } from "react-router-dom";
+﻿import { Link } from "react-router-dom";
 
 function About() {
   return (
-    <div className=" pt-20  min-h-screen bg-gray-50 p-4 md:p-12">
-      <header className="max-w-4xl mx-auto text-center mb-16">
-        <div className="text-6xl font-extrabold text-indigo-600 mb-4">
-          &hearts;
-        </div>
-        <h1 className="text-4xl md:text-5xl font-extrabold text-gray-900 leading-tight">
-          Our Story: The Heart of Book Haven
-        </h1>
-        <p className="text-xl text-gray-600 mt-4">
-          More than a bookstore, we're a community built on a shared passion for
-          the printed word.
+    <section className="mx-auto w-full max-w-6xl px-4 pb-14 pt-6 md:px-8">
+      <header className="glass-panel mb-8 p-8 text-center md:p-10">
+        <p className="text-sm font-semibold uppercase tracking-[0.22em] text-cyan-200 light:text-cyan-700">About BookPulse</p>
+        <h1 className="mt-3 text-4xl font-extrabold text-slate-50 light:text-slate-900 md:text-5xl">Our Story</h1>
+        <p className="mx-auto mt-4 max-w-3xl text-slate-300 light:text-slate-700">
+          More than a bookstore, we are a reading community built around curiosity, culture, and thoughtful learning.
         </p>
       </header>
 
-      <div className="max-w-5xl mx-auto bg-white rounded-2xl shadow-2xl p-8 md:p-12 lg:p-16">
-        <section className="mb-12 border-b pb-8 border-gray-100">
-          <h2 className="text-3xl font-bold text-gray-800 mb-6 flex items-center">
-            🏛️ Our Philosophy: The Historical Lens
-          </h2>
-          <p
-            style={{ textIndent: "52px" }}
-            className="text-lg text-gray-700 leading-relaxed mb-4"
-          >
-            The Archive. We're not just a source of information; we're a bridge
-            to the past. Founded in 2021 by a team of researchers and
-            enthusiasts obsessed with the complex, living narrative of human
-            experience, we built The Archive on a simple belief: understanding
-            the present requires a deep, honest engagement with history. Forget
-            textbook summaries. We meticulously curate every historical source,
-            treatise, and biography, ensuring accuracy, context, and diverse
-            perspectives on every shelf. From the foundational primary documents
-            that shaped nations to the latest groundbreaking analysis of past
-            events, we connect you to what happened and what it means now.
+      <div className="glass-panel p-7 md:p-10">
+        <section className="border-b border-white/10 pb-8 light:border-slate-300/70">
+          <h2 className="text-3xl font-bold text-slate-100 light:text-slate-900">Our Philosophy</h2>
+          <p className="mt-4 text-lg leading-relaxed text-slate-300 light:text-slate-700">
+            We curate titles with care and context, not noise. Our collection focuses on history, critical thinking,
+            and stories that shape perspective. Every recommendation is selected to help readers connect ideas from the
+            past to the world we are building now.
           </p>
-          <p className="text-lg text-gray-700 leading-relaxed italic border-l-4 border-indigo-400 pl-4">
-            "History is not the past, but a map of the past, drawn from a
-            historian's vantage point, to make sense of the future."
+          <p className="mt-4 rounded-xl border-l-4 border-cyan-300/70 bg-white/5 p-4 text-slate-200 light:bg-cyan-50 light:text-slate-700">
+            "Reading deeply is one of the most practical ways to think independently."
           </p>
         </section>
 
-        <section className="mb-12">
-          <h2 className="text-3xl font-bold text-gray-800 mb-6 flex items-center">
-            ✨ Why Choose Book Haven?
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
-            <div className="p-6 bg-indigo-50 rounded-lg shadow-md">
-              <div className="text-4xl text-indigo-600 mb-3">🔍</div>
-              <h3 className="text-xl font-semibold text-gray-800">
-                Carefully Curated
-              </h3>
-              <p className="text-gray-600 text-sm mt-1">
-                We select books with intentionality, not just quantity.
-              </p>
-            </div>
-
-            <div className="p-6 bg-indigo-50 rounded-lg shadow-md">
-              <div className="text-4xl text-indigo-600 mb-3">💬</div>
-              <h3 className="text-xl font-semibold text-gray-800">
-                Reader Focused
-              </h3>
-              <p className="text-gray-600 text-sm mt-1">
-                Our support team consists of real book lovers, ready to help.
-              </p>
-            </div>
-
-            <div className="p-6 bg-indigo-50 rounded-lg shadow-md">
-              <div className="text-4xl text-indigo-600 mb-3">🌳</div>
-              <h3 className="text-xl font-semibold text-gray-800">
-                Eco-Conscious
-              </h3>
-              <p className="text-gray-600 text-sm mt-1">
-                Sustainable practices are at the core of our packaging and
-                sourcing.
-              </p>
-            </div>
+        <section className="mt-8">
+          <h2 className="mb-5 text-3xl font-bold text-slate-100 light:text-slate-900">Why Readers Choose Us</h2>
+          <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
+            <article className="rounded-xl border border-white/10 bg-white/5 p-5 light:border-slate-300/70 light:bg-white/85">
+              <h3 className="text-xl font-semibold text-cyan-100 light:text-cyan-700">Curated Shelves</h3>
+              <p className="mt-2 text-sm text-slate-300 light:text-slate-700">Every title is selected with purpose and quality in mind.</p>
+            </article>
+            <article className="rounded-xl border border-white/10 bg-white/5 p-5 light:border-slate-300/70 light:bg-white/85">
+              <h3 className="text-xl font-semibold text-cyan-100 light:text-cyan-700">Human Support</h3>
+              <p className="mt-2 text-sm text-slate-300 light:text-slate-700">Real readers help you discover books you will actually finish.</p>
+            </article>
+            <article className="rounded-xl border border-white/10 bg-white/5 p-5 light:border-slate-300/70 light:bg-white/85">
+              <h3 className="text-xl font-semibold text-cyan-100 light:text-cyan-700">Sustainable Thinking</h3>
+              <p className="mt-2 text-sm text-slate-300 light:text-slate-700">We prioritize responsible sourcing and mindful packaging.</p>
+            </article>
           </div>
         </section>
 
-        <section className="mt-12 text-center pt-8 border-t border-gray-100">
-          <h2 className="text-3xl font-bold text-indigo-600 mb-3">
-            Join Our Community
-          </h2>
-          <p className="text-lg text-gray-700 mb-6">
-            Explore our collections, share your favorite reads, and become part
-            of the Book Haven family.
+        <section className="mt-10 border-t border-white/10 pt-8 text-center light:border-slate-300/70">
+          <h2 className="text-3xl font-bold text-slate-100 light:text-slate-900">Join Our Community</h2>
+          <p className="mx-auto mt-3 max-w-2xl text-slate-300 light:text-slate-700">
+            Explore our collection, discover bold ideas, and build a reading habit that lasts.
           </p>
-          <Link to='/books'>
-          <button className="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-8 rounded-full shadow-xl transition duration-300 transform hover:scale-105 uppercase tracking-wider">
-            Start Reading Now
-          </button>
+          <Link to="/books" className="mt-6 inline-flex">
+            <span className="btn-primary">Start Reading</span>
           </Link>
         </section>
       </div>
-
-      <footer className="mt-16 text-center text-gray-500 text-sm">
-        Connect with us on social media! Find the latest news and book talks.
-      </footer>
-    </div>
+    </section>
   );
 }
 

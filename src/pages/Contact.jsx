@@ -1,114 +1,117 @@
-import { Link } from "react-router-dom";
-import { FaFacebookSquare } from "react-icons/fa";
-import { FaInstagramSquare } from "react-icons/fa";
-import { FaTelegram } from "react-icons/fa";
+﻿import { FaFacebookSquare, FaInstagramSquare, FaTelegram } from "react-icons/fa";
 import { FaSquareXTwitter } from "react-icons/fa6";
 
 function Contact() {
   return (
-    <div className=" min-h-screen bg-gray-100">
-      <div className="container mx-auto px-4 py-16">
-        <div className="text-center mb-12">
-          <h1 className="text-4xl font-bold text-gray-800 mb-2">
-            Get In Touch
-          </h1>
-          <p className="text-gray-600 max-w-2xl mx-auto">
-            Have a question or want to work together? We'd love to hear from
-            you.
-          </p>
+    <section className="mx-auto w-full max-w-6xl px-4 pb-14 pt-6 md:px-8">
+      <div className="mb-8 text-center">
+        <h1 className="text-4xl font-extrabold text-slate-50 light:text-slate-900 md:text-5xl">Get In Touch</h1>
+        <p className="mx-auto mt-3 max-w-2xl text-slate-300 light:text-slate-700">
+          Questions, feedback, or collaboration ideas. We would love to hear from you.
+        </p>
+      </div>
+
+      <div className="grid gap-6 lg:grid-cols-2">
+        <div className="space-y-4">
+          <div className="glass-panel p-6">
+            <h3 className="text-lg font-semibold text-cyan-100 light:text-cyan-700">Email</h3>
+            <p className="mt-2 text-slate-300 light:text-slate-700">contact@example.com</p>
+            <p className="text-slate-300 light:text-slate-700">support@example.com</p>
+          </div>
+
+          <div className="glass-panel p-6">
+            <h3 className="text-lg font-semibold text-cyan-100 light:text-cyan-700">Phone</h3>
+            <p className="mt-2 text-slate-300 light:text-slate-700">(885) 123-4567</p>
+            <p className="text-slate-300 light:text-slate-700">Mon-Fri, 9am-6pm</p>
+          </div>
+
+          <div className="glass-panel p-6">
+            <h3 className="text-lg font-semibold text-cyan-100 light:text-cyan-700">Location</h3>
+            <p className="mt-2 text-slate-300 light:text-slate-700">123 Business Street</p>
+            <p className="text-slate-300 light:text-slate-700">Phnom Penh, PP 10001</p>
+          </div>
+
+          <div className="glass-panel flex items-center justify-center gap-7 p-5 text-4xl text-slate-200 light:text-slate-700">
+            <a
+              target="_blank"
+              rel="noopener noreferrer"
+              href="https://web.facebook.com/visethsopheach"
+              className="transition hover:scale-110 hover:text-cyan-200"
+            >
+              <FaFacebookSquare />
+            </a>
+            <a
+              target="_blank"
+              rel="noopener noreferrer"
+              href="https://www.instagram.com/viseth_sopheach/"
+              className="transition hover:scale-110 hover:text-cyan-200"
+            >
+              <FaInstagramSquare />
+            </a>
+            <a
+              target="_blank"
+              rel="noopener noreferrer"
+              href="https://t.me/Viseth_Sopheach"
+              className="transition hover:scale-110 hover:text-cyan-200"
+            >
+              <FaTelegram />
+            </a>
+            <a
+              target="_blank"
+              rel="noopener noreferrer"
+              href="https://x.com/VisethSopheach"
+              className="transition hover:scale-110 hover:text-cyan-200 light:hover:text-cyan-700"
+            >
+              <FaSquareXTwitter />
+            </a>
+          </div>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-8">
-          <div className="space-y-6">
-            <div className="bg-white shadow-md rounded-xl p-6 hover:shadow-lg transition-shadow">
-              <h3 className="text-lg font-semibold text-gray-800 mb-1">
-                Email
-              </h3>
-              <p className="text-gray-600">contact@example.com</p>
-              <p className="text-gray-600">support@example.com</p>
+        <div className="glass-panel p-6 md:p-8">
+          <form className="space-y-4">
+            <div>
+              <label className="mb-1 block text-sm font-medium text-slate-200 light:text-slate-700">Name</label>
+              <input
+                type="text"
+                className="w-full rounded-xl border border-white/15 bg-slate-900/70 px-4 py-2.5 text-slate-100 outline-none transition placeholder:text-slate-500 focus:border-cyan-300/60 focus:ring-2 focus:ring-cyan-300/30 light:border-slate-300 light:bg-white light:text-slate-800 light:placeholder:text-slate-400 light:focus:border-cyan-600/60"
+                placeholder="Your name"
+              />
             </div>
 
-            <div className="bg-white shadow-md rounded-xl p-6 hover:shadow-lg transition-shadow">
-              <h3 className="text-lg font-semibold text-gray-800 mb-1">
-                Phone
-              </h3>
-              <p className="text-gray-600"> (885) 123-4567</p>
-              <p className="text-gray-600">Mon-Fri, 9am-6pm EST</p>
+            <div>
+              <label className="mb-1 block text-sm font-medium text-slate-200 light:text-slate-700">Email</label>
+              <input
+                type="email"
+                className="w-full rounded-xl border border-white/15 bg-slate-900/70 px-4 py-2.5 text-slate-100 outline-none transition placeholder:text-slate-500 focus:border-cyan-300/60 focus:ring-2 focus:ring-cyan-300/30 light:border-slate-300 light:bg-white light:text-slate-800 light:placeholder:text-slate-400 light:focus:border-cyan-600/60"
+                placeholder="your@email.com"
+              />
             </div>
 
-            <div className="bg-white shadow-md rounded-xl p-6 hover:shadow-lg transition-shadow">
-              <h3 className="text-lg font-semibold text-gray-800 mb-1">
-                Location
-              </h3>
-              <p className="text-gray-600">123 Business Street</p>
-              <p className="text-gray-600">Phnom Penh, PP 10001</p>
+            <div>
+              <label className="mb-1 block text-sm font-medium text-slate-200 light:text-slate-700">Subject</label>
+              <input
+                type="text"
+                className="w-full rounded-xl border border-white/15 bg-slate-900/70 px-4 py-2.5 text-slate-100 outline-none transition placeholder:text-slate-500 focus:border-cyan-300/60 focus:ring-2 focus:ring-cyan-300/30 light:border-slate-300 light:bg-white light:text-slate-800 light:placeholder:text-slate-400 light:focus:border-cyan-600/60"
+                placeholder="How can we help?"
+              />
             </div>
-            <div className="flex gap-10 bg-white shadow-md rounded-xl p-6 hover:shadow-lg transition-shadow text-4xl">
-              <h1></h1>
-              <Link target="_blank"  rel="noopener noreferrer" to='https://web.facebook.com/visethsopheach'><FaFacebookSquare /></Link>
-              <Link target="_blank"  rel="noopener noreferrer" to='https://www.instagram.com/viseth_sopheach/'><FaInstagramSquare/></Link>
-              <Link target="_blank"  rel="noopener noreferrer" to='https://t.me/Viseth_Sopheach'><FaTelegram /></Link>
-              <Link target="_blank"  rel="noopener noreferrer" to='https://x.com/VisethSopheach'><FaSquareXTwitter /></Link>
+
+            <div>
+              <label className="mb-1 block text-sm font-medium text-slate-200 light:text-slate-700">Message</label>
+              <textarea
+                rows="4"
+                className="w-full resize-none rounded-xl border border-white/15 bg-slate-900/70 px-4 py-2.5 text-slate-100 outline-none transition placeholder:text-slate-500 focus:border-cyan-300/60 focus:ring-2 focus:ring-cyan-300/30 light:border-slate-300 light:bg-white light:text-slate-800 light:placeholder:text-slate-400 light:focus:border-cyan-600/60"
+                placeholder="Tell us more..."
+              />
             </div>
-          </div>
 
-          <div className="bg-white shadow-md rounded-xl p-6">
-            <form className="space-y-4">
-              <div>
-                <label className="block text-gray-700 font-medium mb-1">
-                  Name
-                </label>
-                <input
-                  type="text"
-                  className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
-                  placeholder="Your name"
-                />
-              </div>
-
-              <div>
-                <label className="block text-gray-700 font-medium mb-1">
-                  Email
-                </label>
-                <input
-                  type="email"
-                  className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
-                  placeholder="your@email.com"
-                />
-              </div>
-
-              <div>
-                <label className="block text-gray-700 font-medium mb-1">
-                  Subject
-                </label>
-                <input
-                  type="text"
-                  className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
-                  placeholder="How can we help?"
-                />
-              </div>
-
-              <div>
-                <label className="block text-gray-700 font-medium mb-1">
-                  Message
-                </label>
-                <textarea
-                  rows="4"
-                  className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400 resize-none"
-                  placeholder="Tell us more..."
-                ></textarea>
-              </div>
-
-              <button
-                type="submit"
-                className="w-full bg-blue-500 text-white font-semibold py-2 rounded-md hover:bg-blue-600 transition-colors"
-              >
-                Send Message
-              </button>
-            </form>
-          </div>
+            <button type="submit" className="btn-primary w-full">
+              Send Message
+            </button>
+          </form>
         </div>
       </div>
-    </div>
+    </section>
   );
 }
 

@@ -1,5 +1,4 @@
-import React from "react";
-import { Link, Outlet, useNavigate } from "react-router-dom";
+﻿import { Link, Outlet, useNavigate } from "react-router-dom";
 import { IoMdArrowBack } from "react-icons/io";
 
 function Cart({ cart, removeFromCart }) {
@@ -7,64 +6,60 @@ function Cart({ cart, removeFromCart }) {
   const navigate = useNavigate();
 
   return (
-    <div className="min-h-screen bg-gray-100 p-8">
-      <h1 className="text-3xl font-bold text-center mb-6">Your Cart</h1>
-      {cart.length === 0 ? (
-        <p className="flex items-center justify-center text-gray-600 gap-3">
-          Your cart is empty.
-          <Link to="/books">
-            <button
-              type="button"
-              className="flex items-center gap-2 bg-green-200 hover:bg-green-300 text-gray-800 font-semibold py-2 px-6 rounded-3xl transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-green-400 focus:ring-opacity-50"
-            >
-              <IoMdArrowBack className="text-xl" />
-              Back
-            </button>
-          </Link>
-        </p>
-      ) : (
-        <div className="max-w-3xl mx-auto bg-white rounded-lg shadow-md p-6">
-          {cart.map((item, index) => (
-            <div
-              key={index}
-              className="flex items-center justify-between border-b py-4"
-            >
-              <div className="flex items-center space-x-4">
-                <img
-                  src={item.img}
-                  alt={item.title}
-                  className="w-16 h-16 object-cover rounded"
-                />
-                <div>
-                  <h2 className="font-semibold text-lg">{item.title}</h2>
-                  <p className="text-gray-600">${item.price}</p>
-                </div>
-              </div>
-              <button
-                onClick={() => removeFromCart(item.cartId)}
-                className="text-red-500 hover:text-red-700"
-              >
-                Remove
-              </button>
-            </div>
-          ))}
+    <section className="mx-auto w-full max-w-5xl px-4 pb-16 pt-6 md:px-8">
+      <h1 className="mb-6 text-center text-4xl font-bold text-slate-100 light:text-slate-900">Your Cart</h1>
 
-          <div className="flex justify-between items-center mt-6">
-            <h2 className="text-xl font-semibold">
-              Total: <span className="text-blue-600">${totalPrice}</span>
+      {cart.length === 0 ? (
+        <div className="glass-panel mx-auto flex max-w-xl flex-col items-center gap-5 p-10 text-center">
+          <p className="text-slate-300 light:text-slate-700">Your cart is empty. Pick a book and come back.</p>
+          <Link to="/books" className="btn-secondary gap-2">
+            <IoMdArrowBack className="text-lg" />
+            Browse Books
+          </Link>
+        </div>
+      ) : (
+        <div className="glass-panel overflow-hidden p-4 md:p-6">
+          <div className="space-y-3">
+            {cart.map((item) => (
+              <div
+                key={item.cartId}
+                className="flex items-center justify-between gap-3 rounded-xl border border-white/10 bg-white/6 p-3 light:border-slate-300/80 light:bg-white/90"
+              >
+                <div className="flex min-w-0 items-center gap-3">
+                  <img
+                    src={item.img}
+                    alt={item.title}
+                    className="h-16 w-12 rounded-md border border-white/15 object-cover light:border-slate-300/80"
+                  />
+                  <div className="min-w-0">
+                    <h2 lang="km" className="truncate text-lg font-semibold text-slate-100 light:text-slate-900">
+                      {item.title}
+                    </h2>
+                    <p className="text-sm text-cyan-200 light:text-cyan-700">${item.price}</p>
+                  </div>
+                </div>
+                <button
+                  onClick={() => removeFromCart(item.cartId)}
+                  className="rounded-full border border-rose-300/40 bg-rose-300/10 px-4 py-1.5 text-sm font-semibold text-rose-200 transition hover:bg-rose-300/20 light:text-rose-700"
+                >
+                  Remove
+                </button>
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-6 flex flex-col items-start justify-between gap-4 border-t border-white/10 pt-5 sm:flex-row sm:items-center light:border-slate-300/80">
+            <h2 className="text-xl font-semibold text-slate-100 light:text-slate-900">
+              Total: <span className="text-cyan-200 light:text-cyan-700">${totalPrice}</span>
             </h2>
-            <button
-              onClick={() => navigate("Qr")}
-              type="button"
-              className="flex items-center gap-2 bg-green-200 hover:bg-green-300 text-gray-800 font-semibold py-2 px-6 rounded-3xl transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-green-400 focus:ring-opacity-50"
-            >
-              Buy now
+            <button onClick={() => navigate("qr")} type="button" className="btn-primary">
+              Buy Now
             </button>
           </div>
         </div>
       )}
       <Outlet />
-    </div>
+    </section>
   );
 }
 

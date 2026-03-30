@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Cart from "./components/Cart";
@@ -22,6 +22,17 @@ import img12 from "./assets/img/try.png";
 
 function App() {
   const [cart, setCart] = useState([]);
+  const [theme, setTheme] = useState(() => {
+    const saved = localStorage.getItem("theme");
+    if (saved === "light" || saved === "dark") return saved;
+    return "light";
+  });
+
+  useEffect(() => {
+    document.documentElement.classList.remove("light", "dark");
+    document.documentElement.classList.add(theme);
+    localStorage.setItem("theme", theme);
+  }, [theme]);
   const books = [
     {
       id: 1,
@@ -119,33 +130,41 @@ function App() {
     setCart((prev) => prev.filter((item) => item.cartId !== cartId));
   };
 
+  const toggleTheme = () => {
+    setTheme((prev) => (prev === "dark" ? "light" : "dark"));
+  };
+
   return (
     <Router>
-      <Navbar cart={cart} />
-      <main className="pt-15">
-        <Routes>
-          <Route
-            path="/"
-            element={
-              <>
-                <Home />
-                <Book data={books} addToCart={addToCart} />
-              </>
-            }
-          />
-          <Route
-            path="/books"
-            element={<Book data={books} addToCart={addToCart} />}
-          />
-          <Route path="/about" element={<About />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route
-            path="/cart"
-            element={<Cart cart={cart} removeFromCart={removeFromCart} />}
-          >
-            <Route path="qr" element={<Qr />} />
-          </Route>
-        </Routes>
+      <Navbar cart={cart} theme={theme} onToggleTheme={toggleTheme} />
+      <main className="relative min-h-screen overflow-x-hidden pt-24">
+        <div className="pointer-events-none absolute -left-24 top-12 h-64 w-64 rounded-full bg-cyan-400/15 blur-3xl light:bg-cyan-400/25" />
+        <div className="pointer-events-none absolute right-0 top-1/3 h-72 w-72 rounded-full bg-amber-300/15 blur-3xl light:bg-amber-300/25" />
+        <div className="relative z-10">
+          <Routes>
+            <Route
+              path="/"
+              element={
+                <>
+                  <Home />
+                  <Book data={books} addToCart={addToCart} />
+                </>
+              }
+            />
+            <Route
+              path="/books"
+              element={<Book data={books} addToCart={addToCart} />}
+            />
+            <Route path="/about" element={<About />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route
+              path="/cart"
+              element={<Cart cart={cart} removeFromCart={removeFromCart} />}
+            >
+              <Route path="qr" element={<Qr />} />
+            </Route>
+          </Routes>
+        </div>
       </main>
     </Router>
   );

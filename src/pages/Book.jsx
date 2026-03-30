@@ -1,55 +1,56 @@
-import { Link } from "react-router-dom";
+﻿import { Link } from "react-router-dom";
 
 function Book({ data, addToCart }) {
   return (
-    <div className="min-h-screen bg-slate-100 p-4 sm:p-8 pt-2">
-      <h1 lang="km" className="text-2xl sm:text-3xl font-bold text-center mb-8 text-gray-800">
+    <section className="mx-auto w-full max-w-7xl px-4 pb-14 pt-8 md:px-8">
+      <h1
+        lang="km"
+        className="mb-7 text-center text-3xl font-bold tracking-wide text-slate-100 light:text-slate-900 md:text-4xl"
+      >
         ទូសៀវភៅ
       </h1>
-      <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+      <div className="grid grid-cols-2 gap-4 sm:gap-5 lg:grid-cols-3 xl:grid-cols-4">
         {data.map((item) => (
           <div
             key={item.id}
-            className="bg-gray-150 rounded-xl shadow-md hover:shadow-xl transform hover:scale-[1.03] transition-all duration-300 cursor-pointer flex flex-col justify-between"
+            className="glass-panel group flex h-full flex-col overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:border-cyan-300/40"
           >
-            <div className="w-full h-60 bg-gray-200 flex items-center justify-center rounded-t-xl overflow-hidden">
+            <div className="relative h-64 w-full overflow-hidden bg-slate-900/70 light:bg-slate-100">
               <img
                 src={item.img}
                 alt={item.title}
-                className="w-full h-full object-contain"
+                className="h-full w-full object-contain p-4 transition duration-300 group-hover:scale-105"
               />
             </div>
 
-            <div className="p-4 flex flex-col flex-grow justify-between">
+            <div className="flex flex-grow flex-col justify-between p-4">
               <div>
-                <h2 lang="km" className="text-lg sm:text-xl font-semibold mb-2 text-gray-800">
+                <h2 lang="km" className="mb-2 line-clamp-2 text-xl font-semibold text-slate-100 light:text-slate-900">
                   {item.title}
                 </h2>
-                <p className="text-gray-600 text-sm sm:text-base">
-                  ${item.price}
-                </p>
+                <p className="text-base font-semibold text-cyan-200 light:text-cyan-700">${item.price}</p>
               </div>
-              <div className="mt-4 flex justify-between items-center">
+              <div className="mt-5 flex gap-2">
                 <button
                   onClick={() => addToCart(item)}
-                  className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-2xl text-sm sm:text-base transition-colors w-[48%]"
+                  className="btn-primary w-1/2 px-3 py-2 text-sm"
                 >
-                  Add to Cart
+                  Add
                 </button>
                 <Link
-                  target="_blank"  
+                  target="_blank"
                   rel="noopener noreferrer"
                   to={`${item.lk}`}
-                  className="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-2xl text-sm sm:text-base transition-colors w-[48%] text-center"
+                  className="btn-secondary w-1/2 px-3 py-2 text-center text-sm"
                 >
-                  Read Now
+                  Read
                 </Link>
               </div>
             </div>
           </div>
         ))}
       </div>
-    </div>
+    </section>
   );
 }
 

@@ -1,128 +1,131 @@
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
+import { FiMoon, FiSun } from "react-icons/fi";
 
-function Navbar({ cart }) {
+function Navbar({ cart, theme, onToggleTheme }) {
   const [menuOpen, setMenuOpen] = useState(false);
+  const links = [
+    { to: "/", label: "Home" },
+    { to: "/books", label: "Books" },
+    { to: "/about", label: "About" },
+    { to: "/contact", label: "Contact" },
+  ];
 
   return (
-    <nav className="fixed top-0 w-full z-50 bg-gray-600/40 backdrop-blur-md border-b border-white/10 shadow-lg pb-0">
-      <div className="flex justify-between items-center py-4 px-6 md:px-10">
+    <nav className="fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-slate-950/70 backdrop-blur-xl light:border-slate-300/60 light:bg-white/75">
+      <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 md:px-8">
         <NavLink to="/" className="flex items-center">
-          <h1
-            lang="en"
-            className="text-2xl sm:text-3xl font-bold text-white drop-shadow-lg hover:scale-105 transition-transform"
-          >
-            Book<span className="text-yellow-300">Shop</span>
+          <h1 lang="en" className="text-2xl font-bold tracking-tight sm:text-3xl">
+            <span className="text-slate-50 light:text-slate-900">Book</span>
+            <span className="headline-gradient">Shop</span>
           </h1>
         </NavLink>
 
-        {/* Desktop Menu */}
-        <ul className="hidden md:flex gap-8 text-white font-semibold">
-          {["/", "/books", "/about", "/contact"].map((path, i) => {
-            const names = ["Home", "Books", "About", "Contact"];
-            return (
-              <li key={path}>
-                <NavLink
-                  to={path}
-                  className={({ isActive }) =>
-                    `relative inline-block hover:text-green-300 transition-all hover:scale-110 ${
-                      isActive
-                        ? "after:content-[''] after:absolute after:left-0 after:-bottom-1 after:w-full after:h-[3px] after:bg-blue-300"
-                        : ""
-                    }`
-                  }
-                >
-                  {names[i]}
-                </NavLink>
-              </li>
-            );
-          })}
+        <ul className="hidden items-center gap-7 text-sm font-medium text-slate-200 md:flex light:text-slate-700">
+          {links.map((item) => (
+            <li key={item.to}>
+              <NavLink
+                to={item.to}
+                className={({ isActive }) =>
+                  `rounded-full px-4 py-2 transition ${
+                    isActive
+                      ? "bg-cyan-300/15 text-cyan-200 light:bg-cyan-500/15 light:text-cyan-700"
+                      : "hover:bg-white/8 hover:text-cyan-100 light:hover:bg-cyan-600/10 light:hover:text-cyan-700"
+                  }`
+                }
+              >
+                {item.label}
+              </NavLink>
+            </li>
+          ))}
         </ul>
 
-        {/* Desktop Cart Button */}
-        <div className="hidden md:block relative">
-          <NavLink to="/cart">
-            <button className="bg-white text-indigo-600 px-6 py-2 rounded-full font-bold hover:bg-green-500 hover:text-white transition-all shadow-lg hover:shadow-xl hover:scale-105">
-              Cart
-            </button>
-
-            {/* Cart Count Badge */}
+        <div className="hidden items-center gap-2 md:flex">
+          <button
+            type="button"
+            onClick={onToggleTheme}
+            className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/20 bg-white/8 text-slate-100 transition hover:border-cyan-300/50 hover:text-cyan-200 light:border-slate-300 light:bg-slate-100 light:text-slate-700 light:hover:border-cyan-500/40 light:hover:text-cyan-700"
+            aria-label="Toggle theme"
+          >
+            {theme === "dark" ? <FiSun /> : <FiMoon />}
+          </button>
+          <NavLink to="/cart" className="relative inline-flex">
+            <span className="btn-primary">Cart</span>
             {cart.length > 0 && (
-              <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs px-2 py-1 rounded-full">
+              <span className="absolute -right-2 -top-2 inline-flex h-5 min-w-5 items-center justify-center rounded-full bg-amber-300 px-1 text-xs font-bold text-slate-900">
                 {cart.length}
               </span>
             )}
           </NavLink>
         </div>
 
-        {/* Mobile Menu Button */}
-        <div
-          className="md:hidden flex flex-col justify-between w-6 h-5 cursor-pointer"
-          onClick={() => setMenuOpen(!menuOpen)}
-        >
-          <span
-            className={`block h-1 bg-white rounded transition-all duration-300 ${
-              menuOpen ? "rotate-45 translate-y-2" : ""
-            }`}
-          ></span>
-          <span
-            className={`block h-1 bg-white rounded transition-all duration-300 ${
-              menuOpen ? "opacity-0" : ""
-            }`}
-          ></span>
-          <span
-            className={`block h-1 bg-white rounded transition-all duration-300 ${
-              menuOpen ? "-rotate-45 -translate-y-2" : ""
-            }`}
-          ></span>
+        <div className="flex items-center gap-2 md:hidden">
+          <button
+            type="button"
+            onClick={onToggleTheme}
+            className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/20 bg-white/8 text-slate-100 transition hover:border-cyan-300/50 hover:text-cyan-200 light:border-slate-300 light:bg-slate-100 light:text-slate-700 light:hover:border-cyan-500/40 light:hover:text-cyan-700"
+            aria-label="Toggle theme"
+          >
+            {theme === "dark" ? <FiSun /> : <FiMoon />}
+          </button>
+          <button
+            type="button"
+            className="flex h-10 w-10 flex-col items-center justify-center gap-1.5 rounded-full border border-white/20 bg-white/8 light:border-slate-300 light:bg-slate-100"
+            onClick={() => setMenuOpen((prev) => !prev)}
+            aria-label="Toggle menu"
+          >
+            <span
+              className={`h-0.5 w-5 bg-slate-200 transition light:bg-slate-700 ${
+                menuOpen ? "translate-y-2 rotate-45" : ""
+              }`}
+            />
+            <span
+              className={`h-0.5 w-5 bg-slate-200 transition light:bg-slate-700 ${
+                menuOpen ? "opacity-0" : ""
+              }`}
+            />
+            <span
+              className={`h-0.5 w-5 bg-slate-200 transition light:bg-slate-700 ${
+                menuOpen ? "-translate-y-2 -rotate-45" : ""
+              }`}
+            />
+          </button>
         </div>
       </div>
 
-      {/* Mobile Menu */}
       <div
-        className={`md:hidden bg-gray-300/40 backdrop-blur-md border-b border-white/10 shadow-lg text-center overflow-hidden transition-all duration-300 ${
-          menuOpen ? "max-h-96 py-4" : "max-h-0"
+        className={`overflow-hidden border-t border-white/10 bg-slate-900/95 transition-all md:hidden light:border-slate-300/60 light:bg-white/95 ${
+          menuOpen ? "max-h-96 py-3" : "max-h-0"
         }`}
       >
-        {["/", "/books", "/about", "/contact"].map((path, i) => {
-          const names = ["Home", "Books", "About", "Contact"];
-          return (
+        <div className="mx-auto flex max-w-7xl flex-col gap-1 px-5">
+          {links.map((item) => (
             <NavLink
-              key={path}
-              to={path}
+              key={item.to}
+              to={item.to}
               onClick={() => setMenuOpen(false)}
               className={({ isActive }) =>
-                `block py-2 text-lg hover:text-yellow-300 ${
-                  isActive ? "underline decoration-yellow-300" : ""
+                `rounded-xl px-4 py-2.5 text-sm font-medium transition ${
+                  isActive
+                    ? "bg-cyan-300/15 text-cyan-200 light:bg-cyan-500/15 light:text-cyan-700"
+                    : "text-slate-200 hover:bg-white/8 light:text-slate-700 light:hover:bg-cyan-600/10"
                 }`
               }
             >
-              {names[i]}
+              {item.label}
             </NavLink>
-          );
-        })}
-
-        {/* Mobile Cart Button */}
-        <NavLink to="/cart" onClick={() => setMenuOpen(false)}>
-          <div className="relative inline-block">
-            <button
-              className="bg-white text-indigo-600 px-6 py-2 rounded-full font-bold 
-      hover:bg-green-500 hover:text-white transition-all shadow-lg hover:shadow-xl hover:scale-105"
-            >
+          ))}
+          <NavLink to="/cart" onClick={() => setMenuOpen(false)} className="pt-1">
+            <span className="btn-primary relative w-full">
               Cart
-            </button>
-
-            {/* Show badge only if cart has items */}
-            {cart.length > 0 && (
-              <span
-                className="absolute -top-2 -right-2 bg-red-600 text-white text-xs 
-        w-5 h-5 flex items-center justify-center rounded-full"
-              >
-                {cart.length}
-              </span>
-            )}
-          </div>
-        </NavLink>
+              {cart.length > 0 && (
+                <span className="absolute -right-1 -top-1 inline-flex h-5 min-w-5 items-center justify-center rounded-full bg-amber-300 px-1 text-xs font-bold text-slate-900">
+                  {cart.length}
+                </span>
+              )}
+            </span>
+          </NavLink>
+        </div>
       </div>
     </nav>
   );
